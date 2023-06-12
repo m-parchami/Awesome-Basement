@@ -8,3 +8,7 @@ find ./someDir/ -type f | xargs -0 -P $(nproc) -n 5000 touch
 ## List all the directories without a certain file:
 # e.g. if you want to see which experiments lack a sertain file:
 find ./someDir/ -maxdepth 2 -mindepth 2 -type d '!' -exec test -e "{}/model_checkpoint_final.pt" ';' -print
+
+
+## List sub-directories and create empty dirs under the same name at another path
+find . -type d -exec mkdir -p -- ../IMNA/{}
