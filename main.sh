@@ -11,4 +11,4 @@ find ./someDir/ -maxdepth 2 -mindepth 2 -type d '!' -exec test -e "{}/model_chec
 
 
 ## List sub-directories and create empty dirs under the same name at another path
-find . -type d -exec mkdir -p -- ../IMNA/{}
+find . -type d -exec mkdir -p -- ../IMNA/{} \;
