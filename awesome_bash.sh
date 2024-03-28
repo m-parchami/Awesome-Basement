@@ -12,3 +12,7 @@ find ./someDir/ -maxdepth 2 -mindepth 2 -type d '!' -exec test -e "{}/model_chec
 
 ## List sub-directories and create empty dirs under the same name at another path
 find ./ -type d -exec mkdir -p -- ../IMNA/{} \;
+
+## A good sync command to sync a directory with a remote directory using a proxy jump. It also ignores .png files
+## and relies on checksum (rather than timestamp) for deciding what to transfer.
+rsync -avz --checksum --exclude "*.png" -e "ssh -J user@proxy_server" experiments/ user@remote_server:copy_path
