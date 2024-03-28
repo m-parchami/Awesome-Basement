@@ -6,7 +6,7 @@ find ./someDir/ -type f -print0 | xargs -0 -P $(nproc) -n 5000 touch
 # Potentially you can add -maxdepth -mindepth to make the search faster
 
 ## List all the directories without a certain file:
-# e.g. if you want to see which experiments lack a sertain file:
+# e.g. if you want to see which experiments lack a certain file:
 find ./someDir/ -maxdepth 2 -mindepth 2 -type d '!' -exec test -e "{}/model_checkpoint_final.pt" ';' -print
 
 
