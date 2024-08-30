@@ -19,3 +19,12 @@ rsync -avz --checksum --exclude "*.png" -e "ssh -J user@proxy_server" experiment
 
 ## For faster deletion of large dirs
 mkdir empty && rsync -aP --delete ./empty/ ./dir_to_delete/
+
+## Clean my Notebook (e.g. for commits)
+jupyter nbconvert \
+ --ClearOutputPreprocessor.enabled=True \
+ --ClearMetadataPreprocessor.enabled=True \
+ --to=notebook --log-level=ERROR --inplace \
+  MyNotebook.ipynb
+
+
